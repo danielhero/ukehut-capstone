@@ -6,13 +6,13 @@ import Ukulele from "./Ukulele";
 import UkuleleForm from "./UkuleleForm";
 import { EditUkuleleForm } from "./EditUkuleleForm";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
-import "./Ukulele.css";
 
 export default () => {
   const { ukuleles, deleteUkulele } = useContext(UkuleleContext);
   const { ukeSizes } = useContext(UkeSizeContext);
   const { ukeShapes } = useContext(UkeShapeContext);
 
+  const [filteredUsers, setFiltered] = useState([]);
   const [selectedUkulele, setUkulele] = useState({
     ukuleles: { id: 0 },
     ukeSize: null,
@@ -30,7 +30,7 @@ export default () => {
       <h2>My Uke Collection</h2>
       <Button
         onClick={() => {
-          const userId = localStorage.getItem("ukehut_user");
+          let userId = localStorage.getItem("ukehut_user");
           if (userId) {
             toggle();
           }
@@ -39,7 +39,7 @@ export default () => {
         Add Ukulele
       </Button>
 
-      <ul className="ukuleles">
+      <div className="ukuleles">
         {ukuleles.map((ukulele) => {
           const matchingUkeSize =
             ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
@@ -48,7 +48,7 @@ export default () => {
             ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) || [];
 
           return (
-            <div>
+            <ul className="eachUkulele">
               <Ukulele
                 key={ukulele.id}
                 ukulele={ukulele}
@@ -65,15 +65,15 @@ export default () => {
               </Button>
               <Button
                 onClick={() => {
-                  deleteUkulele(selectedUkulele.ukuleles.id);
+                  deleteUkulele(ukulele);
                 }}
               >
                 Remove
               </Button>
-            </div>
+            </ul>
           );
         })}
-      </ul>
+      </div>
 
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Add to your collection!</ModalHeader>

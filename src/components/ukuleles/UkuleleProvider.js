@@ -44,10 +44,6 @@ export const UkuleleProvider = (props) => {
     }).then(getUkuleles);
   };
 
-  /*
-        Load all ukuleles when the component is mounted. Ensure that
-        an empty array is the second argument to avoid infinite loop.
-    */
   useEffect(() => {
     getUkuleles();
   }, []);

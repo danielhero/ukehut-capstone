@@ -6,12 +6,12 @@ export const UkeShapeContext = React.createContext();
  This component establishes what data can be used.
  */
 export const UkeShapeProvider = (props) => {
-  const [ukeShape, setUkeShape] = useState([]);
+  const [ukeShapes, setUkeShapes] = useState([]);
 
   const getUkeShape = () => {
     return fetch("http://localhost:8088/ukeShape")
       .then((res) => res.json())
-      .then(setUkeShape);
+      .then(setUkeShapes);
   };
 
   /*
@@ -24,12 +24,12 @@ export const UkeShapeProvider = (props) => {
 
   useEffect(() => {
     console.log("****  UKESHAPE APPLICATION STATE CHANGED  ****");
-  }, [ukeShape]);
+  }, [ukeShapes]);
 
   return (
     <UkeShapeContext.Provider
       value={{
-        ukeShape,
+        ukeShapes,
       }}
     >
       {props.children}

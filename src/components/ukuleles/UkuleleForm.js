@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import { UkuleleContext } from "./UkuleleProvider";
 import { UkeSizeContext } from "./UkeSizeProvider";
 import { UkeShapeContext } from "./UkeShapeProvider";

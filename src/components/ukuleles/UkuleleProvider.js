@@ -18,29 +18,29 @@ export const UkuleleProvider = (props) => {
       .then(setUkuleles);
   };
 
-  const addUkulele = (ukulele) => {
+  const addUkulele = (ukuleles) => {
     return fetch("http://localhost:8088/ukuleles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(ukulele),
+      body: JSON.stringify(ukuleles),
     }).then(getUkuleles);
   };
 
-  const deleteUkulele = (ukuleleId) => {
-    return fetch(`http://localhost:8088/ukuleles/${ukuleleId}`, {
+  const deleteUkulele = (ukuleles) => {
+    return fetch(`http://localhost:8088/ukuleles/${ukuleles.id}`, {
       method: "DELETE",
     }).then(getUkuleles);
   };
 
-  const updateUkulele = (ukulele) => {
-    return fetch(`http://localhost:8088/ukuleles/${ukulele.id}`, {
+  const updateUkulele = (ukuleles) => {
+    return fetch(`http://localhost:8088/ukuleles/${ukuleles.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(ukulele),
+      body: JSON.stringify(ukuleles),
     }).then(getUkuleles);
   };
 

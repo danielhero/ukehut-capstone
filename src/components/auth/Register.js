@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import "./Login.css";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const Register = (props) => {
   const firstName = useRef();
@@ -57,9 +56,7 @@ const Register = (props) => {
     <>
       <main className="container--login">
         <form className="form--register" onSubmit={handleRegister}>
-          <h4 className="darkgray">
-            If you are not a UKEHUT user, please register a new account
-          </h4>
+          <h4 className="darkgray">Register a new account</h4>
           <fieldset>
             <label htmlFor="firstName"> First Name </label>
             <input

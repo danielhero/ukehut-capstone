@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Login.css";
+import { Button } from "reactstrap";
+import Register from "./Register";
 
 const Login = (props) => {
   const username = useRef();
   const password = useRef();
+
+  const [register, setRegister] = useState(false);
+  const toggleRegister = () => setRegister(!register);
 
   const existingUserCheck = () => {
     return fetch(
@@ -64,6 +69,9 @@ const Login = (props) => {
           <button type="submit">Sign in</button>
         </fieldset>
       </form>
+      <section>
+        <Button>Register Here</Button>
+      </section>
     </main>
   );
 };

@@ -6,12 +6,12 @@ export const UkeSizeContext = React.createContext();
  This component establishes what data can be used.
  */
 export const UkeSizeProvider = (props) => {
-  const [ukeSize, setUkeSize] = useState([]);
+  const [ukeSizes, setUkeSizes] = useState([]);
 
   const getUkeSize = () => {
     return fetch("http://localhost:8088/ukeSize")
       .then((res) => res.json())
-      .then(setUkeSize);
+      .then(setUkeSizes);
   };
 
   /*
@@ -24,12 +24,12 @@ export const UkeSizeProvider = (props) => {
 
   useEffect(() => {
     console.log("****  UKESIZE APPLICATION STATE CHANGED  ****");
-  }, [ukeSize]);
+  }, [ukeSizes]);
 
   return (
     <UkeSizeContext.Provider
       value={{
-        ukeSize,
+        ukeSizes,
       }}
     >
       {props.children}

@@ -12,7 +12,7 @@ export default () => {
   const { ukeSizes } = useContext(UkeSizeContext);
   const { ukeShapes } = useContext(UkeShapeContext);
 
-  const [filteredUsers, setFiltered] = useState([]);
+  const [filteredUkuleles, setFiltered] = useState([]);
   const [selectedUkulele, setUkulele] = useState({
     ukuleles: { id: 0 },
     ukeSize: null,
@@ -41,10 +41,10 @@ export default () => {
 
       <div className="ukuleles">
         {ukuleles.map((ukulele) => {
-          const matchingUkeSize =
+          const ukeSize =
             ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
 
-          const matchingUkeShape =
+          const ukeShape =
             ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) || [];
 
           return (
@@ -52,24 +52,33 @@ export default () => {
               <Ukulele
                 key={ukulele.id}
                 ukulele={ukulele}
-                ukeSize={matchingUkeSize}
-                ukeShape={matchingUkeShape}
+                ukeSize={ukeSize}
+                ukeShape={ukeShape}
               />
-              <Button
-                onClick={() => {
-                  toggleEdit();
-                  setUkulele({ ukulele, matchingUkeSize, matchingUkeShape });
-                }}
-              >
-                Update Ukulele
-              </Button>
-              <Button
-                onClick={() => {
-                  deleteUkulele(ukulele);
-                }}
-              >
-                Remove
-              </Button>
+              <div className="updateButton">
+                <Button
+                  onClick={() => {
+                    toggleEdit();
+
+                    setUkulele({
+                      ukuleles: ukulele,
+                      ukeSize: ukeSize,
+                      ukeShape: ukeShape,
+                    });
+                  }}
+                >
+                  Update Ukulele
+                </Button>
+              </div>
+              <div className="deleteButton">
+                <Button
+                  onClick={() => {
+                    deleteUkulele(ukulele);
+                  }}
+                >
+                  Remove
+                </Button>
+              </div>
             </ul>
           );
         })}
@@ -86,7 +95,7 @@ export default () => {
           <EditUkuleleForm
             key={selectedUkulele.ukuleles.id}
             toggleEdit={toggleEdit}
-            {...selectedUkulele}
+            ukulele={selectedUkulele.ukuleles}
           />
         </ModalBody>
       </Modal>

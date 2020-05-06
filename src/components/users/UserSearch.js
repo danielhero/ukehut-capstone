@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "./usersProvider";
-import { FriendContext } from "../friends/FriendsProvider";
+
 import User from "./User";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
@@ -8,8 +8,8 @@ export const SearchResults = ({ searchTerms }) => {
   const { users } = useContext(UserContext);
 
   const [filteredUsers, setFiltered] = useState([]);
-  const [selectedUser, setUser] = useState({
-    user: { id: 0 },
+  const [selectedUser, setUsers] = useState({
+    users: { id: 0 },
     username: null,
   });
 
@@ -32,11 +32,25 @@ export const SearchResults = ({ searchTerms }) => {
       <h3>Results</h3>
       <div className="users">
         {filteredUsers.map((user) => (
-          <div className="fakeLink href" key={user.id}>
+          <div
+            key={user.id}
+            onClick={() => {
+              setUsers({ users: user });
+              toggle();
+            }}
+          >
             {user.username}
           </div>
         ))}
       </div>
+
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>{selectedUser.users.username}</ModalHeader>
+        <ModalBody>
+          <User user={selectedUser.users} />
+        </ModalBody>
+        <ModalFooter></ModalFooter>
+      </Modal>
     </div>
   );
 };

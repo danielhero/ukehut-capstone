@@ -6,9 +6,11 @@ import { UkeSizeProvider } from "./ukuleles/UkeSizeProvider";
 import { SearchBar } from "./users/UserSearchBar";
 import { UserProvider } from "./users/usersProvider";
 import { SearchResults } from "./users/UserSearch";
+import FriendList from "./friends/FriendList";
 
 export default () => {
   const [searchTerms, setTerms] = useState(null);
+  const [dropTerms, setDrops] = useState(null);
 
   return (
     <div className="mainContainer">
@@ -18,6 +20,7 @@ export default () => {
             <UkeShapeProvider>
               <SearchBar setTerms={setTerms} />
               <SearchResults searchTerms={searchTerms} />
+              <FriendList />
               <UkuleleList />
             </UkeShapeProvider>
           </UkeSizeProvider>

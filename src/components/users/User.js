@@ -1,5 +1,5 @@
 import React from "react";
 
-export default (props) => (
-  <div className="friendUserName">{props.users.username}</div>
+export default ({ user }) => (
+  <div className="friendUserName">Adding {user.username} as a UkeBuddy?</div>
 );

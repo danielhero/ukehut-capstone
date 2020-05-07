@@ -7,6 +7,7 @@ import { SearchBar } from "./users/UserSearchBar";
 import { UserProvider } from "./users/usersProvider";
 import { SearchResults } from "./users/UserSearch";
 import { FriendProvider } from "./friends/FriendsProvider";
+import FriendDropDown from "./friends/FriendDropDown";
 
 export default () => {
   const [searchTerms, setTerms] = useState(null);
@@ -26,6 +27,7 @@ export default () => {
                 <UkeShapeProvider>
                   <SearchBar setTerms={setTerms} />
                   <SearchResults searchTerms={searchTerms} />
+                  <FriendDropDown />
                   <UkuleleList />
                 </UkeShapeProvider>
               </UkeSizeProvider>

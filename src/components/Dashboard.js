@@ -6,7 +6,7 @@ import { UkeSizeProvider } from "./ukuleles/UkeSizeProvider";
 import { SearchBar } from "./users/UserSearchBar";
 import { UserProvider } from "./users/usersProvider";
 import { SearchResults } from "./users/UserSearch";
-import FriendList from "./friends/FriendList";
+import { FriendProvider } from "./friends/FriendsProvider";
 
 export default () => {
   const [searchTerms, setTerms] = useState(null);
@@ -14,18 +14,25 @@ export default () => {
 
   return (
     <div className="mainContainer">
-      <UserProvider>
-        <UkuleleProvider>
-          <UkeSizeProvider>
-            <UkeShapeProvider>
-              <SearchBar setTerms={setTerms} />
-              <SearchResults searchTerms={searchTerms} />
-              <FriendList />
-              <UkuleleList />
-            </UkeShapeProvider>
-          </UkeSizeProvider>
-        </UkuleleProvider>
-      </UserProvider>
+      <div className="dataContainer">
+        <h1>UkeHut</h1>
+        <small>A place for uke enthusiasts to show off their ukes!</small>
+      </div>
+      <div className="Container">
+        <UserProvider>
+          <FriendProvider>
+            <UkuleleProvider>
+              <UkeSizeProvider>
+                <UkeShapeProvider>
+                  <SearchBar setTerms={setTerms} />
+                  <SearchResults searchTerms={searchTerms} />
+                  <UkuleleList />
+                </UkeShapeProvider>
+              </UkeSizeProvider>
+            </UkuleleProvider>
+          </FriendProvider>
+        </UserProvider>
+      </div>
     </div>
   );
 };

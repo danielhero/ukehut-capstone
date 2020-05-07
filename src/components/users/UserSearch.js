@@ -1,11 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "./usersProvider";
+import { FriendContext } from "../friends/FriendsProvider";
 
 import User from "./User";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 export const SearchResults = ({ searchTerms }) => {
   const { users } = useContext(UserContext);
+  const { addFriend } = useContext(FriendContext);
 
   const [filteredUsers, setFiltered] = useState([]);
   const [selectedUser, setUsers] = useState({
@@ -15,6 +17,15 @@ export const SearchResults = ({ searchTerms }) => {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+
+  const constructNewFriend = () => {
+    const userId = parseInt(localStorage.getItem("ukehut_user"));
+
+    addFriend({
+      userId: userId,
+      following: selectedUser.users.id,
+    });
+  };
 
   useEffect(() => {
     if (searchTerms !== "") {
@@ -49,7 +60,17 @@ export const SearchResults = ({ searchTerms }) => {
         <ModalBody>
           <User user={selectedUser.users} />
         </ModalBody>
-        <ModalFooter></ModalFooter>
+        <ModalFooter>
+          <Button
+            onClick={() => {
+              constructNewFriend();
+              toggle();
+            }}
+            className="primary"
+          >
+            Add UkeBuddy
+          </Button>
+        </ModalFooter>
       </Modal>
     </div>
   );

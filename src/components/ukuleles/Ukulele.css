@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+.ukulele__image {
+  width: 200px;
+  height: 200px;
+}
+
+.eachUkulele {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+}
+
+.ukulele {
+  font-weight: bold;
+}

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { FriendContext } from "./FriendsProvider";
 import { UserContext } from "../users/usersProvider";
 
-export default () => {
+export default (setDrops) => {
   const { friends } = useContext(FriendContext);
   const { users } = useContext(UserContext);
 
@@ -11,23 +11,25 @@ export default () => {
   return (
     <>
       <h2>UkeBuddy Collections</h2>
-      <div>
-        <select value={""}>
-          {friends
-            .filter((friend) => friend.userId === currentUserId)
-            .map((friend) => {
-              const userFriends = users.filter(
-                (user) => user.id === friend.following
-              );
+      <fieldset>
+        <div>
+          <select onChange={(e) => setDrops(e.target.value)}>
+            <option value="0">Choose a Collection</option>
+            {friends
+              .filter((friend) => friend.userId === currentUserId)
+              .map((friend) => {
+                const userFriend =
+                  users.find((user) => user.id === friend.following) || {};
 
-              return (
-                <option key={friend.id} value={""}>
-                  {friend.following}
-                </option>
-              );
-            })}
-        </select>
-      </div>
+                return (
+                  <option key={friend.id} value={userFriend.username}>
+                    {userFriend.username}
+                  </option>
+                );
+              })}
+          </select>
+        </div>
+      </fieldset>
     </>
   );
 };

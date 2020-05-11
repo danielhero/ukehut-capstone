@@ -8,6 +8,8 @@ import { UserProvider } from "./users/usersProvider";
 import { SearchResults } from "./users/UserSearch";
 import { FriendProvider } from "./friends/FriendsProvider";
 import FriendDropDown from "./friends/FriendDropDown";
+import "./Ukehut.css";
+import "./UkeHutHeader.css";
 
 export default () => {
   const [searchTerms, setTerms] = useState(null);
@@ -15,11 +17,11 @@ export default () => {
 
   return (
     <div className="mainContainer">
-      <div className="dataContainer">
+      <div className="headerContainer">
         <h1>UkeHut</h1>
         <small>A place for uke enthusiasts to show off their ukes!</small>
       </div>
-      <div className="Container">
+      <div className="ukeContainer">
         <UserProvider>
           <FriendProvider>
             <UkuleleProvider>

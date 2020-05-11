@@ -32,6 +32,7 @@ export const EditUkuleleForm = ({ ukulele, toggleEdit }) => {
     } else {
       updateUkulele({
         id: updatedUkulele.id,
+        userId: updatedUkulele.userId,
         make: updatedUkulele.make,
         model: updatedUkulele.model,
         sizeId: sizeId,

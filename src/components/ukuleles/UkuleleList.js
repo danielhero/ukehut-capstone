@@ -44,13 +44,13 @@ export default () => {
         {ukuleles
           .filter((ukulele) => ukulele.userId === currentUserId)
           .map((ukulele) => {
+            console.log(ukuleles);
             const ukeSize =
               ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
 
             const ukeShape =
               ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) ||
               [];
-
             return (
               <ul className="eachUkulele">
                 <Ukulele

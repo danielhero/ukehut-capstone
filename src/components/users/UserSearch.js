@@ -7,9 +7,10 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 export const SearchResults = ({ searchTerms }) => {
   const { users } = useContext(UserContext);
-  const { addFriend } = useContext(FriendContext);
+  const { friends, addFriend } = useContext(FriendContext);
 
   const [filteredUsers, setFiltered] = useState([]);
+
   const [selectedUser, setUsers] = useState({
     users: { id: 0 },
     username: null,
@@ -62,11 +63,19 @@ export const SearchResults = ({ searchTerms }) => {
         </ModalBody>
         <ModalFooter>
           <Button
-            onClick={() => {
-              constructNewFriend();
-              toggle();
+            onClick={(event) => {
+              const AlreadyAFriend =
+                friends.find(
+                  (friend) => friend.following === selectedUser.users.id
+                ) || {};
+              if (selectedUser.users.id === AlreadyAFriend.following) {
+                window.alert("Already a UkeBuddy!");
+              } else {
+                constructNewFriend();
+
+                toggle();
+              }
             }}
-            className="primary"
           >
             Add UkeBuddy
           </Button>

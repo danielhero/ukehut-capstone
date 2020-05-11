@@ -2,8 +2,8 @@ import React from "react";
 
 export default (props) => (
   <section className="ukulele">
-    <div className="ukulele__image">
-      <img src={props.ukulele.image} />
+    <div className="ukulele__imageDiv">
+      <img className="ukulele__image" src={props.ukulele.image} />
     </div>
     <div className="ukulele__makeModel">
       {props.ukulele.make} {props.ukulele.model}

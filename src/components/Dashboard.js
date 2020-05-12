@@ -10,10 +10,11 @@ import { FriendProvider } from "./friends/FriendsProvider";
 import FriendDropDown from "./friends/FriendDropDown";
 import "./Ukehut.css";
 import "./UkeHutHeader.css";
+import FriendUkuleleList from "./ukuleles/FriendUkuleleList";
 
 export default () => {
   const [searchTerms, setTerms] = useState(null);
-  const [dropTerms, setDrops] = useState(null);
+  const [friendCollectionId, setCollectionId] = useState(null);
 
   return (
     <div className="mainContainer">
@@ -21,16 +22,23 @@ export default () => {
         <h1>UkeHut</h1>
         <small>A place for uke enthusiasts to show off their ukes!</small>
       </div>
-      <div className="ukeContainer">
+      <div className="dataContainer">
         <UserProvider>
           <FriendProvider>
             <UkuleleProvider>
               <UkeSizeProvider>
                 <UkeShapeProvider>
-                  <SearchBar setTerms={setTerms} />
-                  <SearchResults searchTerms={searchTerms} />
-                  <FriendDropDown />
-                  <UkuleleList />
+                  <div className="ukeBuddyContainer">
+                    <SearchBar setTerms={setTerms} />
+                    <SearchResults searchTerms={searchTerms} />
+                    <FriendDropDown setCollectionId={setCollectionId} />
+                  </div>
+                  <div className="collectionContainer">
+                    <UkuleleList />
+                    <FriendUkuleleList
+                      friendCollectionId={friendCollectionId}
+                    />
+                  </div>
                 </UkeShapeProvider>
               </UkeSizeProvider>
             </UkuleleProvider>

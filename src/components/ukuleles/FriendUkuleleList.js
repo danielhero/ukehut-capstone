@@ -1,30 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { UkuleleContext } from "./UkuleleProvider";
 import { UkeSizeContext } from "./UkeSizeProvider";
 import { UkeShapeContext } from "./UkeShapeProvider";
 import Ukulele from "./Ukulele";
 import { UserContext } from "../users/usersProvider";
 
-export default () => {
+export default ({ friendCollectionId }) => {
   const { ukuleles } = useContext(UkuleleContext);
   const { ukeSizes } = useContext(UkeSizeContext);
   const { ukeShapes } = useContext(UkeShapeContext);
-  const { users } = userContext(UserContext);
+  const { users } = useContext(UserContext);
 
   const currentUserId = parseInt(localStorage.getItem("ukehut_user"));
 
-  const [selectedUser, setUsers] = useState({
-    users: { id: 0 },
-    username: null,
-  });
+  const [filteredUser, setFiltered] = useState({});
+
+  useEffect(() => {
+    if (friendCollectionId !== currentUserId) {
+      const selectedFriend =
+        users.find((user) => user.id === parseInt(friendCollectionId)) || {};
+      setFiltered(selectedFriend);
+    } else {
+      setFiltered([]);
+    }
+  }, [friendCollectionId]);
 
   return (
     <>
-      <h2>{users.username}'s Uke Collection</h2>
+      <h2>{filteredUser.username}'s Uke Collection</h2>
 
       <div className="ukuleles">
         {ukuleles
-          .filter((ukulele) => ukulele.userId === currentUserId)
+          .filter((ukulele) => ukulele.userId === filteredUser.id)
           .map((ukulele) => {
             const ukeSize =
               ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];

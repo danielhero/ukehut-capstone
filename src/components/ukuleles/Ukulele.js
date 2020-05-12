@@ -8,7 +8,7 @@ export default (props) => (
     <div className="ukulele__makeModel">
       {props.ukulele.make} {props.ukulele.model}
     </div>
-    <div className="ukulele__size">{props.ukeSize.size}</div>
-    <div className="ukulele__shape">{props.ukeShape.shape}</div>
+    <div className="ukulele__size">Size: {props.ukeSize.size}</div>
+    <div className="ukulele__shape">Body Shape: {props.ukeShape.shape}</div>
   </section>
 );

@@ -62,5 +62,8 @@ address {
   padding-left: 0.5rem;
 }
 .mainContainer {
-  background-color: antiquewhite;
+  background-image: url(UkeHut-logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 75%;
 }

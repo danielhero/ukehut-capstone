@@ -28,66 +28,68 @@ export default () => {
 
   return (
     <>
-      <h2>My Uke Collection</h2>
-      <Button
-        onClick={() => {
-          let userId = localStorage.getItem("ukehut_user");
-          if (userId) {
-            toggle();
-          }
-        }}
-      >
-        Add Ukulele
-      </Button>
+      <div className="myUkeList">
+        <h2>My Uke Collection</h2>
+        <Button
+          onClick={() => {
+            let userId = localStorage.getItem("ukehut_user");
+            if (userId) {
+              toggle();
+            }
+          }}
+        >
+          Add Ukulele
+        </Button>
 
-      <div className="ukuleles">
-        {ukuleles
-          .filter((ukulele) => ukulele.userId === currentUserId)
-          .map((ukulele) => {
-            console.log(ukuleles);
-            const ukeSize =
-              ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
+        <div className="ukuleles">
+          {ukuleles
+            .filter((ukulele) => ukulele.userId === currentUserId)
+            .map((ukulele) => {
+              console.log(ukuleles);
+              const ukeSize =
+                ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
 
-            const ukeShape =
-              ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) ||
-              [];
-            return (
-              <ul className="eachUkulele">
-                <Ukulele
-                  key={ukulele.id}
-                  ukulele={ukulele}
-                  ukeSize={ukeSize}
-                  ukeShape={ukeShape}
-                />
-                <div className="updateButton">
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      toggleEdit();
+              const ukeShape =
+                ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) ||
+                [];
+              return (
+                <ul className="eachUkulele">
+                  <Ukulele
+                    key={ukulele.id}
+                    ukulele={ukulele}
+                    ukeSize={ukeSize}
+                    ukeShape={ukeShape}
+                  />
+                  <div className="updateButton">
+                    <Button
+                      size="sm"
+                      onClick={() => {
+                        toggleEdit();
 
-                      setUkulele({
-                        ukuleles: ukulele,
-                        ukeSize: ukeSize,
-                        ukeShape: ukeShape,
-                      });
-                    }}
-                  >
-                    Update Ukulele
-                  </Button>
-                </div>
-                <div className="deleteButton">
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      deleteUkulele(ukulele);
-                    }}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              </ul>
-            );
-          })}
+                        setUkulele({
+                          ukuleles: ukulele,
+                          ukeSize: ukeSize,
+                          ukeShape: ukeShape,
+                        });
+                      }}
+                    >
+                      Update Ukulele
+                    </Button>
+                  </div>
+                  <div className="deleteButton">
+                    <Button
+                      size="sm"
+                      onClick={() => {
+                        deleteUkulele(ukulele);
+                      }}
+                    >
+                      Remove
+                    </Button>
+                  </div>
+                </ul>
+              );
+            })}
+        </div>
       </div>
 
       <Modal isOpen={modal} toggle={toggle}>

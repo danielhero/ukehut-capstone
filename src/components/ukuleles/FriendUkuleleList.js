@@ -19,6 +19,7 @@ export default ({ friendCollectionId }) => {
     if (friendCollectionId !== currentUserId) {
       const selectedFriend =
         users.find((user) => user.id === parseInt(friendCollectionId)) || {};
+
       setFiltered(selectedFriend);
     } else {
       setFiltered([]);
@@ -27,30 +28,32 @@ export default ({ friendCollectionId }) => {
 
   return (
     <>
-      <h2>{filteredUser.username}'s Uke Collection</h2>
+      <div className="friendUkeList">
+        <h2>{filteredUser.username}'s Uke Collection</h2>
 
-      <div className="ukuleles">
-        {ukuleles
-          .filter((ukulele) => ukulele.userId === filteredUser.id)
-          .map((ukulele) => {
-            const ukeSize =
-              ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
+        <div className="ukuleles">
+          {ukuleles
+            .filter((ukulele) => ukulele.userId === filteredUser.id)
+            .map((ukulele) => {
+              const ukeSize =
+                ukeSizes.find((ukeSize) => ukeSize.id === ukulele.sizeId) || [];
 
-            const ukeShape =
-              ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) ||
-              [];
+              const ukeShape =
+                ukeShapes.find((ukeShape) => ukeShape.id === ukulele.shapeId) ||
+                [];
 
-            return (
-              <ul className="eachUkulele">
-                <Ukulele
-                  key={ukulele.id}
-                  ukulele={ukulele}
-                  ukeSize={ukeSize}
-                  ukeShape={ukeShape}
-                />
-              </ul>
-            );
-          })}
+              return (
+                <ul className="eachUkulele">
+                  <Ukulele
+                    key={ukulele.id}
+                    ukulele={ukulele}
+                    ukeSize={ukeSize}
+                    ukeShape={ukeShape}
+                  />
+                </ul>
+              );
+            })}
+        </div>
       </div>
     </>
   );

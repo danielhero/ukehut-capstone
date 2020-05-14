@@ -52,12 +52,7 @@ export default () => {
 
   return (
     <div className="mainContainer">
-      <div className="headerContainer">
-        <h1 className="pageHeader">UkeHut</h1>
-        <small className="pageTag">
-          A place for uke enthusiasts to show off their ukes!
-        </small>
-      </div>
+      <div className="headerContainer"></div>
       <div className="dataContainer">
         <UserProvider>
           <FriendProvider>

@@ -15,11 +15,15 @@ export default ({ setFriendCollectionId, setActiveList }) => {
         <div>
           <select
             onChange={(e) => {
-              setFriendCollectionId(e.target.value);
-              setActiveList("friendUkeList");
+              if (e.target.value === "0") {
+                setActiveList("myUkeList");
+              } else {
+                setFriendCollectionId(e.target.value);
+                setActiveList("friendUkeList");
+              }
             }}
           >
-            <option value={0}>My Collection</option>
+            <option value="0">My Collection</option>
             {friends
               .filter((friend) => friend.userId === currentUserId)
               .map((friend) => {

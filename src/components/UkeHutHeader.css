@@ -1,3 +1,7 @@
 .headerContainer {
-  background-image: url(UkeHut-logo.png);
+  max-width: 1500px;
+  height: 100px;
+  background-color: gray;
+  /* background-image: url(UkeHut-header-logo.png);
+  background-size: cover; */
 }

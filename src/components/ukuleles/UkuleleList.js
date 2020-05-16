@@ -63,6 +63,7 @@ export default () => {
                   <div className="updateButton">
                     <Button
                       size="sm"
+                      color="info"
                       onClick={() => {
                         toggleEdit();
 
@@ -79,6 +80,7 @@ export default () => {
                   <div className="deleteButton">
                     <Button
                       size="sm"
+                      color="danger"
                       onClick={() => {
                         deleteUkulele(ukulele);
                       }}

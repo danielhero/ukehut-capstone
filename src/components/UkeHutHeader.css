@@ -1,7 +1,5 @@
 .headerContainer {
-  max-width: 1500px;
-  height: 100px;
-  background-color: gray;
-  /* background-image: url(UkeHut-header-logo.png);
-  background-size: cover; */
+  background: url(UkeHut-header-logo.png) center no-repeat #175873;
+  width: auto;
+  height: 240px;
 }

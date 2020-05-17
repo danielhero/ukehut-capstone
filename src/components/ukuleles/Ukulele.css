@@ -7,23 +7,33 @@
 }
 
 .eachUkulele {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+
   padding: 2rem;
   background-color: white;
   border-radius: 25px;
   border: 2px solid #8cb89f;
 }
 
+.ukuleles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 2rem;
+}
+
 .collectionContainer {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 2rem;
 }
 .deleteButton {
-  padding: 1rem;
+  color: burlywood;
+  padding: 0.5rem;
 }
 .updateButton {
-  padding: 1rem;
+  color: #8cb89f;
+  padding: 0.5rem;
 }

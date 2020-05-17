@@ -29,17 +29,21 @@ export default () => {
   return (
     <>
       <div className="myUkeList">
-        <h2>My Uke Collection</h2>
-        <Button
-          onClick={() => {
-            let userId = localStorage.getItem("ukehut_user");
-            if (userId) {
-              toggle();
-            }
-          }}
-        >
-          Add Ukulele
-        </Button>
+        <div className="myUkeListHeader">
+          <h2>My Uke Collection</h2>
+          <Button
+            color="info"
+            className="addUkeButton"
+            onClick={() => {
+              let userId = localStorage.getItem("ukehut_user");
+              if (userId) {
+                toggle();
+              }
+            }}
+          >
+            Add Ukulele
+          </Button>
+        </div>
 
         <div className="ukuleles">
           {ukuleles
@@ -62,8 +66,8 @@ export default () => {
                   />
                   <div className="updateButton">
                     <Button
-                      size="sm"
                       color="info"
+                      size="sm"
                       onClick={() => {
                         toggleEdit();
 
@@ -80,7 +84,6 @@ export default () => {
                   <div className="deleteButton">
                     <Button
                       size="sm"
-                      color="danger"
                       onClick={() => {
                         deleteUkulele(ukulele);
                       }}

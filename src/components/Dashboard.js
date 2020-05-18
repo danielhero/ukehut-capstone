@@ -64,8 +64,10 @@ export default () => {
                 <UkeShapeProvider>
                   <div className="ukeCollectionContainer">{components}</div>
                   <div className="ukeBuddyContainer">
-                    <SearchBar setTerms={setTerms} />
-                    <SearchResults searchTerms={searchTerms} />
+                    <div className="searchContainer">
+                      <SearchBar setTerms={setTerms} />
+                      <SearchResults searchTerms={searchTerms} />
+                    </div>
                     <div className="dropdownContainer">
                       <FriendDropDown
                         setFriendCollectionId={setFriendCollectionId}

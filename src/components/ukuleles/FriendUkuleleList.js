@@ -30,7 +30,7 @@ export default ({ friendCollectionId }) => {
     <>
       <div className="friendUkeList">
         <div className="friendUkeListHeader">
-          <h2>{filteredUser.username}'s Uke Collection</h2>
+          <h1>{filteredUser.username}'s Uke Collection</h1>
         </div>
 
         <div className="ukuleles">

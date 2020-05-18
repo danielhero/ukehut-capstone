@@ -30,7 +30,7 @@ export default () => {
     <>
       <div className="myUkeList">
         <div className="myUkeListHeader">
-          <h2>My Uke Collection</h2>
+          <h1>My Uke Collection</h1>
           <Button
             color="info"
             size="lg"

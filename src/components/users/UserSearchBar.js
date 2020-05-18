@@ -7,7 +7,7 @@ export const SearchBar = ({ setTerms }) => {
     <div className="searchBarContainer">
       <fieldset>
         <div className="form-group">
-          <h4 htmlFor="searchTerms">UkeBuddy Search:</h4>
+          <h2 htmlFor="searchTerms">UkeBuddy Search</h2>
           <input
             onKeyUp={(e) => setTerms(e.target.value)}
             type="text"

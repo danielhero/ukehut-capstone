@@ -41,7 +41,7 @@ export const SearchResults = ({ searchTerms }) => {
 
   return (
     <div className="searchResults">
-      <h3>Results</h3>
+      <h3>UkeHutters</h3>
       <div className="users">
         {filteredUsers.map((user) => (
           <div
@@ -64,6 +64,7 @@ export const SearchResults = ({ searchTerms }) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            color="info"
             onClick={(event) => {
               const AlreadyAFriend =
                 friends.find(

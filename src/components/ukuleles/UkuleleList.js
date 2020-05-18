@@ -33,6 +33,7 @@ export default () => {
           <h2>My Uke Collection</h2>
           <Button
             color="info"
+            size="lg"
             className="addUkeButton"
             onClick={() => {
               let userId = localStorage.getItem("ukehut_user");

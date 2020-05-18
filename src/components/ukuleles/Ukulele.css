@@ -3,14 +3,16 @@
 .ukulele__image {
   width: 200px;
   height: 200px;
+  margin-bottom: 1rem;
   border-radius: 50px;
 }
 
 .eachUkulele {
   flex-basis: 28%;
   margin: 1em;
-  padding: 1em;
-
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 22px;
+  font-weight: normal;
   padding: 2rem;
   background-color: white;
   border-radius: 25px;
@@ -20,20 +22,22 @@
 .ukuleles {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   padding: 2rem;
 }
 
-.collectionContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 2rem;
-}
 .deleteButton {
-  color: burlywood;
   padding: 0.5rem;
+  font-size: medium;
 }
 .updateButton {
-  color: #8cb89f;
   padding: 0.5rem;
+}
+
+.myUkeListHeader {
+  text-align: center;
+}
+
+.friendUkeListHeader {
+  text-align: center;
 }

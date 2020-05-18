@@ -11,25 +11,12 @@
 }
 .ukeCollectionContainer {
   padding-top: 1rem;
+  margin-right: 1rem;
+  width: 75%;
   border-top: 5px solid #175873;
   border-right: 5px solid #175873;
   display: flex;
-  flex-direction: row;
-}
-
-.ukeBuddyContainer {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 2rem;
-}
-
-.links {
-  flex: 1;
-}
-
-.listDisplay {
-  flex: 5;
+  flex-basis: auto;
 }
 
 .dropdownContainer {

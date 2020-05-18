@@ -12,7 +12,7 @@ export default ({ setFriendCollectionId, setActiveList }) => {
     <>
       <h2>UkeBuddy Collections</h2>
       <fieldset>
-        <div>
+        <div className="dropdown">
           <select
             onChange={(e) => {
               if (e.target.value === "0") {

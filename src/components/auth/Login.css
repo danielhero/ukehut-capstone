@@ -2,7 +2,7 @@
   color: #747678;
 }
 
-.authContainer {
+. .authContainer {
   display: flex;
   padding: 0 10rem;
   flex-direction: row;
@@ -16,7 +16,9 @@ h1 {
 }
 
 .welcome {
-  margin-bottom: 4rem;
+  background: url(../UkeHut-header-logo.png) center no-repeat #175873;
+  width: auto;
+  height: 200px;
 }
 
 fieldset {
@@ -58,6 +60,7 @@ input[type="password"] {
   text-align: center;
   flex: 1;
   flex-basis: 33%;
+  background: lightgray;
 }
 
 .form--login {
@@ -73,6 +76,9 @@ input[type="password"] {
   display: inline-block;
   margin: 0 auto;
   text-align: left;
+  border-radius: 25px;
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
 .form--register {
@@ -86,4 +92,7 @@ input[type="password"] {
   display: inline-block;
   margin: 0 auto;
   text-align: left;
+  border-radius: 25px;
+  padding: 1rem;
+  margin-top: 1rem;
 }

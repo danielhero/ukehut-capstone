@@ -1,3 +1,25 @@
 .searchBarContainer {
   display: inline-flex;
 }
+
+.fakeLink {
+  background: none !important;
+  border: none;
+  font-family: arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.href {
+  color: #175873;
+  text-decoration: underline;
+}
+
+.href:hover {
+  color: burlywood;
+}
+
+.fakeLink:focus {
+  outline: 0;
+}

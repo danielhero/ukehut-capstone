@@ -69,9 +69,6 @@ const Login = (props) => {
           <button type="submit">Sign in</button>
         </fieldset>
       </form>
-      <section>
-        <Button>Register Here</Button>
-      </section>
     </main>
   );
 };

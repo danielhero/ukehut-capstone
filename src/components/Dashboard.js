@@ -13,6 +13,7 @@ import "./Ukehut.css";
 import "./UkeHutHeader.css";
 import "./ukuleles/Ukulele.css";
 import "./Layout.css";
+import "./users/UserSearch.css";
 
 export default () => {
   const [searchTerms, setTerms] = useState(null);

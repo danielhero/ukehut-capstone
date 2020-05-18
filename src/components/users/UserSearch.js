@@ -45,6 +45,7 @@ export const SearchResults = ({ searchTerms }) => {
       <div className="users">
         {filteredUsers.map((user) => (
           <div
+            className=" fakeLink href hover"
             key={user.id}
             onClick={() => {
               setUsers({ users: user });
